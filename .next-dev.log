@@ -8,3 +8,6 @@
  ✓ Starting...
  ✓ Ready in 1698ms
  ○ Compiling / ...
+ ✓ Compiled / in 9.1s (2267 modules)
+ GET / 200 in 9522ms
+ ✓ Compiled in 577ms (1139 modules)
