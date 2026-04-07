@@ -14,7 +14,7 @@ export default function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -22,7 +22,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
     setFormData({ name: '', email: '', message: '' });
@@ -56,9 +55,9 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Let's Connect</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Let&apos;s Connect</h2>
           <p className="text-lg text-slate-300 mb-12">
-            I'm always open to discussing data projects, job opportunities, or collaborations. Feel free to reach out!
+            Open to data roles, machine learning work, and collaborations around analytics or AI products.
           </p>
         </motion.div>
 
@@ -69,19 +68,17 @@ export default function Contact() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-12"
         >
-          {/* Contact Info */}
           <motion.div variants={itemVariants} className="space-y-6">
             <div className="glass rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-8 text-accent">Get in Touch</h3>
 
-              {/* Email */}
               <motion.a
                 href="mailto:diyorarti@gmail.com"
                 whileHover={{ x: 5 }}
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-6"
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-4"
               >
                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
-                  ✉️
+                  @
                 </div>
                 <div>
                   <p className="font-semibold text-accent">Email</p>
@@ -89,33 +86,41 @@ export default function Contact() {
                 </div>
               </motion.a>
 
-              {/* LinkedIn */}
+              <div className="flex items-start gap-4 p-4 rounded-lg mb-4">
+                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
+                  #
+                </div>
+                <div>
+                  <p className="font-semibold text-accent">Phone</p>
+                  <p className="text-slate-300">+48 793 513 399</p>
+                </div>
+              </div>
+
               <motion.a
                 href="https://www.linkedin.com/in/diyorarti/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 5 }}
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-6"
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-4"
               >
                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
-                  💼
+                  in
                 </div>
                 <div>
                   <p className="font-semibold text-accent">LinkedIn</p>
-                  <p className="text-slate-300">diyorarti</p>
+                  <p className="text-slate-300">linkedin.com/in/diyorarti</p>
                 </div>
               </motion.a>
 
-              {/* GitHub */}
               <motion.a
                 href="https://github.com/diyorarti"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 5 }}
-                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-6"
+                className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-smooth mb-4"
               >
                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
-                  <span className="text-lg">💻</span>
+                  gh
                 </div>
                 <div>
                   <p className="font-semibold text-accent">GitHub</p>
@@ -123,20 +128,18 @@ export default function Contact() {
                 </div>
               </motion.a>
 
-              {/* Location */}
               <div className="flex items-start gap-4 p-4 rounded-lg">
                 <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
-                  📍
+                  PL
                 </div>
                 <div>
                   <p className="font-semibold text-accent">Location</p>
-                  <p className="text-slate-300">Poland</p>
+                  <p className="text-slate-300">Katowice, Silesian, Poland</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div variants={itemVariants}>
             <form onSubmit={handleSubmit} className="glass rounded-xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-accent">Send Me a Message</h3>
@@ -197,7 +200,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
                 className="w-full px-6 py-3 bg-accent text-primary font-semibold rounded-lg hover:bg-neon transition-smooth"
               >
-                {isSubmitted ? '✓ Message Sent!' : 'Send Message'}
+                {isSubmitted ? 'Message Sent' : 'Send Message'}
               </motion.button>
 
               {isSubmitted && (
@@ -206,7 +209,7 @@ export default function Contact() {
                   animate={{ opacity: 1 }}
                   className="text-center text-neon mt-4 text-sm"
                 >
-                  Thanks! I'll get back to you soon.
+                  Thanks. I will get back to you soon.
                 </motion.p>
               )}
             </form>

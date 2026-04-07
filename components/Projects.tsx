@@ -6,57 +6,45 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Revenue Analysis',
-      description: 'Analyzed 98K+ e-commerce transactions to uncover revenue trends and product performance patterns',
-      tech: ['SQL', 'Python', 'Pandas', 'Matplotlib'],
-      problem: 'Identify high-performing products and revenue growth opportunities',
-      github: 'https://github.com/diyorarti',
-      featured: true,
+      title: 'Sales Revenue Analysis for an E-Commerce Platform',
+      date: 'December 2025',
+      description:
+        'Analyzed a 100K+ order e-commerce dataset across 9 relational tables to evaluate revenue performance and order dynamics.',
+      tech: ['SQL', 'CTEs', 'JOINs', 'Aggregation', 'Business Metrics'],
+      highlights: [
+        'Built SQL queries to combine transactional data and compute core business metrics.',
+        'Investigated monthly revenue trends, order dynamics, and average items per order.',
+        'Identified top revenue-generating product categories and key sales drivers.',
+      ],
+      github: 'https://github.com/diyorarti/Sales-Revenue_Analysis_for_an_E-Commerce_Platform',
     },
     {
       id: 2,
-      title: 'Job Market Salary Trends',
-      description: 'Evaluated 50K+ job listings to identify salary trends, regional differences, and high-demand skills',
-      tech: ['Python', 'Seaborn', 'SQL', 'Data Analysis'],
-      problem: 'Understand salary variations and skill demand across regions',
-      github: 'https://github.com/diyorarti',
-      featured: true,
+      title: 'Customer Churn Analysis',
+      date: 'January 2026',
+      description:
+        'Used Python to analyze a telecom churn dataset with 7,000+ records and 21 features to understand churn behavior.',
+      tech: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
+      highlights: [
+        'Performed cleaning, EDA, correlation analysis, and feature relationship analysis.',
+        'Visualized churn patterns across contract type, tenure, and customer behavior.',
+        'Found that monthly contracts showed 42% churn versus 11% and 2.8% for longer terms.',
+      ],
+      github: 'https://github.com/diyorarti/Customer_Churn_Analysis',
     },
     {
       id: 3,
-      title: 'Customer Churn Analysis',
-      description: 'Investigated telecom customer churn (27% rate) to identify high-risk segments and develop retention insights',
-      tech: ['SQL', 'Python', 'Power BI', 'Analytics'],
-      problem: 'Reduce customer churn through targeted retention strategies',
-      github: 'https://github.com/diyorarti',
-      featured: true,
-    },
-    {
-      id: 4,
-      title: 'Data Dashboard Project',
-      description: 'Built interactive Power BI dashboards for business intelligence and real-time monitoring',
-      tech: ['Power BI', 'SQL', 'DAX', 'Excel'],
-      problem: 'Create real-time insights for business decision making',
-      github: 'https://github.com/diyorarti',
-      featured: false,
-    },
-    {
-      id: 5,
-      title: 'Marketing Analytics',
-      description: 'Analyzed marketing campaign performance and customer segmentation',
-      tech: ['Python', 'Pandas', 'SQL', 'Matplotlib'],
-      problem: 'Optimize marketing spend and improve ROI',
-      github: 'https://github.com/diyorarti',
-      featured: false,
-    },
-    {
-      id: 6,
-      title: 'Supply Chain Optimization',
-      description: 'Optimized inventory management through predictive analytics',
-      tech: ['SQL', 'Python', 'Seaborn', 'Analytics'],
-      problem: 'Reduce inventory costs while maintaining service levels',
-      github: 'https://github.com/diyorarti',
-      featured: false,
+      title: 'Fine-Tuned Medical Assistant',
+      date: 'October 2025',
+      description:
+        'Fine-tuned a 3B-parameter medical language model with LoRA and deployed it as a production-style API.',
+      tech: ['LoRA', 'PEFT', 'FastAPI', 'Docker', 'Hugging Face'],
+      highlights: [
+        'Reached roughly 90% accuracy while reducing loss from 7.0 to 1.0.',
+        'Designed a hybrid training strategy to balance direct answers with clinical reasoning.',
+        'Containerized the service and deployed it publicly with scalable API access.',
+      ],
+      github: 'https://github.com/diyorarti/Medical-assistant',
     },
   ];
 
@@ -91,15 +79,14 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold mb-12 gradient-text">Featured Projects</h2>
         </motion.div>
 
-        {/* Featured Projects */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid gap-8 lg:grid-cols-3"
         >
-          {projects.filter(p => p.featured).map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -107,15 +94,19 @@ export default function Projects() {
               className="glass rounded-xl overflow-hidden group hover:border-accent transition-smooth"
             >
               <div className="p-8 h-full flex flex-col">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-neon">
+                  {project.date}
+                </p>
                 <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-smooth">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 text-sm mb-4 flex-grow">
-                  {project.description}
-                </p>
-                <div className="mb-4">
-                  <p className="text-xs text-neon mb-2 font-semibold">Problem Solved:</p>
-                  <p className="text-slate-400 text-xs">{project.problem}</p>
+                <p className="text-slate-400 text-sm mb-4">{project.description}</p>
+                <div className="mb-4 space-y-2">
+                  {project.highlights.map((highlight) => (
+                    <p key={highlight} className="text-xs text-slate-300">
+                      {'>'} {highlight}
+                    </p>
+                  ))}
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
@@ -132,62 +123,15 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
-                  className="text-accent font-semibold text-sm hover:text-neon transition-smooth"
+                  className="mt-auto text-accent font-semibold text-sm hover:text-neon transition-smooth"
                 >
-                  View on GitHub →
+                  View on GitHub {'->'}
                 </motion.a>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Other Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold mb-8 text-accent">Other Notable Projects</h3>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {projects.filter(p => !p.featured).map((project) => (
-              <motion.div
-                key={project.id}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="glass rounded-lg p-6 hover:border-accent transition-smooth group"
-              >
-                <h4 className="font-semibold mb-2 group-hover:text-accent transition-smooth">
-                  {project.title}
-                </h4>
-                <p className="text-slate-400 text-sm mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="px-2 py-1 bg-secondary rounded text-xs text-accent">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent text-sm hover:text-neon transition-smooth"
-                >
-                  GitHub →
-                </a>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* View All Projects */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

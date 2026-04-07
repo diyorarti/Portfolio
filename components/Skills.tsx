@@ -5,24 +5,24 @@ import { motion } from 'framer-motion';
 export default function Skills() {
   const skillCategories = [
     {
-      title: 'Data & Analytics',
-      skills: ['SQL (PostgreSQL)', 'Python', 'Pandas', 'NumPy', 'Excel', 'Power BI'],
-      icon: '📊',
+      title: 'Programming & Data',
+      skills: ['Python', 'NumPy', 'Pandas', 'SQL', 'PostgreSQL', 'FastAPI'],
+      icon: '01',
     },
     {
-      title: 'Visualization',
-      skills: ['Matplotlib', 'Seaborn', 'Power Query', 'Pivot Tables', 'DAX', 'Data Storytelling'],
-      icon: '📈',
+      title: 'Analytics & Visualization',
+      skills: ['Excel', 'Pivot Tables', 'Power Query', 'Power BI', 'Matplotlib', 'Seaborn'],
+      icon: '02',
     },
     {
-      title: 'Tools & Platforms',
-      skills: ['Git', 'GitHub', 'Jupyter Notebook', 'PostgreSQL', 'Excel', 'Power BI'],
-      icon: '🛠️',
+      title: 'Machine Learning',
+      skills: ['Scikit-learn', 'Classification', 'Supervised Learning', 'Unsupervised Learning', 'TensorFlow', 'Neural Networks'],
+      icon: '03',
     },
     {
-      title: 'Web Development',
-      skills: ['JavaScript', 'React', 'Next.js', 'Tailwind CSS', 'HTML', 'CSS'],
-      icon: '💻',
+      title: 'LLM & Tools',
+      skills: ['HuggingFace Transformers', 'LangChain', 'RAG', 'Git', 'GitHub', 'Docker'],
+      icon: '04',
     },
   ];
 
@@ -45,6 +45,14 @@ export default function Skills() {
     },
   };
 
+  const proficiencies = [
+    { name: 'Python & Data Analysis', level: 90 },
+    { name: 'SQL & Relational Data', level: 88 },
+    { name: 'Machine Learning', level: 84 },
+    { name: 'Deep Learning & NLP', level: 78 },
+    { name: 'Power BI & Excel', level: 85 },
+  ];
+
   return (
     <section id="skills" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary to-secondary">
       <div className="max-w-7xl mx-auto w-full">
@@ -64,7 +72,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-8"
         >
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
@@ -72,7 +80,7 @@ export default function Skills() {
               className="glass rounded-xl p-8 hover:border-accent transition-smooth"
             >
               <div className="flex items-center mb-6">
-                <span className="text-4xl mr-3">{category.icon}</span>
+                <span className="mr-3 text-lg font-bold text-neon">{category.icon}</span>
                 <h3 className="text-2xl font-bold text-accent">{category.title}</h3>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -92,7 +100,6 @@ export default function Skills() {
           ))}
         </motion.div>
 
-        {/* Proficiency Levels */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -102,13 +109,7 @@ export default function Skills() {
         >
           <h3 className="text-2xl font-bold mb-8 text-accent">Proficiency Levels</h3>
           <div className="space-y-6">
-            {[
-              { name: 'SQL & Database Management', level: 95 },
-              { name: 'Python & Data Analysis', level: 90 },
-              { name: 'Excel & Power BI', level: 85 },
-              { name: 'Web Development (React/Next.js)', level: 80 },
-              { name: 'Business Intelligence & Analytics', level: 90 },
-            ].map((skill, index) => (
+            {proficiencies.map((skill, index) => (
               <motion.div
                 key={skill.name}
                 initial={{ opacity: 0 }}

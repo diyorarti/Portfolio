@@ -40,18 +40,28 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <p className="text-accent font-semibold mb-2">Welcome to my portfolio</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Hi, I'm <span className="gradient-text">Diyorbek</span>
+              Hi, I&apos;m <span className="gradient-text">Diyorbek</span>
             </h1>
-            <p className="text-2xl text-secondary mb-6">Data Scientist</p>
+            <p className="text-2xl text-secondary mb-6">Data Scientist | ML, NLP, and Generative AI</p>
           </motion.div>
 
           <motion.p
             variants={itemVariants}
             className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl"
           >
-            I analyze complex datasets to drive business decisions. With expertise in SQL, Python, and business intelligence, 
-            I uncover insights from 7K-100K+ records to help companies grow strategically.
+            Data enthusiast currently pursuing a bachelor&apos;s degree in Computer Science with hands-on
+            experience in Python, SQL, machine learning, deep learning, and LLM-powered applications.
+            I turn structured data and real-world problems into clear, usable solutions.
           </motion.p>
+
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8 text-sm text-slate-300">
+            <span className="rounded-lg border border-accent/20 bg-secondary px-4 py-2">
+              Katowice, Silesian, Poland
+            </span>
+            <span className="rounded-lg border border-accent/20 bg-secondary px-4 py-2">
+              +48 793 513 399
+            </span>
+          </motion.div>
 
           <motion.div
             variants={itemVariants}

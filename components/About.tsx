@@ -3,6 +3,29 @@
 import { motion } from 'framer-motion';
 
 export default function About() {
+  const expertise = [
+    {
+      title: 'Data Analysis',
+      description: 'Structured analysis, data cleaning, exploratory analysis, and business-focused reporting.',
+    },
+    {
+      title: 'Machine Learning',
+      description: 'Supervised and unsupervised learning with Scikit-learn for real-world prediction tasks.',
+    },
+    {
+      title: 'Deep Learning',
+      description: 'Neural networks and TensorFlow workflows for model training and experimentation.',
+    },
+    {
+      title: 'LLM Applications',
+      description: 'HuggingFace Transformers, LangChain, RAG pipelines, and FastAPI-based AI services.',
+    },
+    {
+      title: 'Data Quality',
+      description: 'Practical experience validating data, spotting anomalies, and maintaining consistency.',
+    },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -44,56 +67,45 @@ export default function About() {
           <motion.div variants={itemVariants} className="glass rounded-xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-accent">Who I Am</h3>
             <p className="text-slate-300 leading-relaxed mb-4">
-              I am a Data Analyst with a passion for uncovering insights from complex datasets. 
-              Currently pursuing my Bachelor's degree at WSB University in Poland, I've developed 
-              strong analytical skills through real-world projects involving hundreds of thousands of records.
+              I am a data scientist in progress, currently studying Computer Science at WSB University
+              in Silesia, Poland. Over the last three years, I have been building a strong foundation in
+              data analysis, machine learning, NLP, and structured problem solving through courses and
+              personal projects.
             </p>
             <p className="text-slate-300 leading-relaxed">
-              My journey in data science started with a curiosity about how numbers tell stories. 
-              Now, I transform raw data into actionable recommendations that drive business growth.
+              Alongside technical work, I also bring practical data quality experience from the
+              pharmaceutical industry, where accuracy, consistency, and careful validation matter every day.
             </p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="glass rounded-xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-accent">My Expertise</h3>
             <ul className="space-y-3 text-slate-300">
-              <li className="flex items-start">
-                <span className="text-neon mr-3 mt-1">▸</span>
-                <span><strong>Data Analysis:</strong> Extracting insights from 7K-100K+ records</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-neon mr-3 mt-1">▸</span>
-                <span><strong>SQL:</strong> Complex queries, data modeling, PostgreSQL</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-neon mr-3 mt-1">▸</span>
-                <span><strong>Python:</strong> Pandas, NumPy, Matplotlib, Seaborn</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-neon mr-3 mt-1">▸</span>
-                <span><strong>Excel:</strong> Power Query, Pivot Tables, DAX</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-neon mr-3 mt-1">▸</span>
-                <span><strong>Business Intelligence:</strong> Power BI, data visualization</span>
-              </li>
+              {expertise.map((item) => (
+                <li key={item.title} className="flex items-start">
+                  <span className="mr-3 mt-1 text-neon">{'>'}</span>
+                  <span>
+                    <strong>{item.title}:</strong> {item.description}
+                  </span>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           <motion.div variants={itemVariants} className="glass rounded-xl p-8 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 text-accent">Key Achievements</h3>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-3">
               <div>
-                <p className="text-3xl font-bold text-neon mb-2">98K+</p>
-                <p className="text-slate-300">E-commerce transactions analyzed</p>
+                <p className="mb-2 text-3xl font-bold text-neon">100K+</p>
+                <p className="text-slate-300">Orders analyzed across a 9-table e-commerce dataset</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-neon mb-2">50K+</p>
-                <p className="text-slate-300">Job listings evaluated for trends</p>
+                <p className="mb-2 text-3xl font-bold text-neon">7K+</p>
+                <p className="text-slate-300">Telecom churn records explored across 21 features</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-neon mb-2">27%</p>
-                <p className="text-slate-300">Customer churn rate analyzed</p>
+                <p className="mb-2 text-3xl font-bold text-neon">90%</p>
+                <p className="text-slate-300">Accuracy reached on a fine-tuned medical assistant model</p>
               </div>
             </div>
           </motion.div>
