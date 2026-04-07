@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, Suspense } from 'react';
-import Globe3D from './Globe3D';
+import Image from 'next/image';
+import portraitImage from '@/assets/image.png';
 
 export default function Hero() {
-  const [isHovering, setIsHovering] = useState(false);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,8 +66,6 @@ export default function Hero() {
             className="flex gap-4 flex-wrap"
           >
             <motion.button
-              onHoverStart={() => setIsHovering(true)}
-              onHoverEnd={() => setIsHovering(false)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-3 bg-accent text-primary font-semibold rounded-lg hover:bg-neon transition-smooth"
@@ -108,18 +104,27 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right 3D Globe */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="hidden md:block"
         >
-          <Suspense fallback={<div className="h-96 bg-secondary rounded-lg" />}>
-            <div className="glass-darker rounded-2xl p-8">
-              <Globe3D />
+          <div className="glass-darker rounded-[2rem] p-4">
+            <div className="relative mx-auto aspect-[9/10] max-w-xl overflow-hidden rounded-[2rem] border border-accent/20 bg-gradient-to-br from-secondary via-primary to-secondary shadow-[0_0_60px_rgba(56,189,248,0.08)]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_40%)]" />
+              <div className="absolute inset-x-10 top-8 h-10 rounded-full border border-neon/40 bg-neon/10 blur-sm" />
+              <div className="absolute inset-y-12 -right-10 w-24 rounded-full bg-accent/10 blur-3xl" />
+              <Image
+                src={portraitImage}
+                alt="Portrait of Diyorbek Tirkashov"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/10 to-transparent" />
             </div>
-          </Suspense>
+          </div>
         </motion.div>
       </div>
 
