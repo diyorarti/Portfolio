@@ -86,16 +86,6 @@ export default function Contact() {
                 </div>
               </motion.a>
 
-              <div className="flex items-start gap-4 p-4 rounded-lg mb-4">
-                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-primary flex-shrink-0">
-                  #
-                </div>
-                <div>
-                  <p className="font-semibold text-accent">Phone</p>
-                  <p className="text-slate-300">+48 793 513 399</p>
-                </div>
-              </div>
-
               <motion.a
                 href="https://www.linkedin.com/in/diyorarti/"
                 target="_blank"

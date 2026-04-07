@@ -57,7 +57,6 @@ export default function Hero() {
               Katowice, Silesian, Poland
             </span>
             <span className="rounded-lg border border-accent/20 bg-secondary px-4 py-2">
-              +48 793 513 399
             </span>
           </motion.div>
 
